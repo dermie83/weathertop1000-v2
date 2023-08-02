@@ -1,0 +1,13 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "name": "Dermie",
+      "_id": "9a64e17e-59d8-4042-848d-4cd11a57c35d"
+    },
+    {
+      "name": "Susan",
+      "_id": "67528072-bf4f-4678-aa21-c063801ef9be"
+    }
+  ]
+}
