@@ -25,13 +25,13 @@ export const stationAnalytics = {
     return maxTempReading;
   },
   
-  
-  getLatestCode(station) {
-    let latestCodeReading = null;
+  getLatestReading(station) {
+    let latestReading = null;
     if (station.readings.length > 0) {
-      latestCodeReading = station.readings[station.readings.length - 1];
+      latestReading = station.readings[station.readings.length - 1];
     }
-    return latestCodeReading;
-  }
+    return latestReading;
+  },
+  
   
 };

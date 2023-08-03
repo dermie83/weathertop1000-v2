@@ -11,3 +11,14 @@ allow readings to be added to this model
 list all readings in the model
 create extra view partials to inhance UX i.e. logos and icons
 added delete methods and buttons for station and readings objects
+
+version 0.2.1
+started baseline of package/application development
+created a station-analytics.js file in util folder
+added max and min methods to display variables in station-view
+created a method to show most recent reading in databaase to display in station-view
+
+version 0.2.2
+Added reading-conversions.js to util folder
+created a readingConversions class with a temperature conversion method
+

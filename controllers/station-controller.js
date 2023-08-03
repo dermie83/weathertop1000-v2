@@ -1,13 +1,20 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/station-analytics.js";
+import { readingConversions } from "../utils/reading-conversions.js";
+
 
 export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
     const minTempReading = stationAnalytics.getMinTempReading(station);
     const maxTempReading = stationAnalytics.getMaxTempReading(station);
-    const latestCodeReading = stationAnalytics.getLatestCode(station);
+    const latestCodeReading = stationAnalytics.getLatestReading(station);
+    const latestTempReading = stationAnalytics.getLatestReading(station);
+    const convertLatestTempReading = readingConversions.convertTemp(latestTempReading.temperature);
+    const latestWindSpeedReading = stationAnalytics.getLatestReading(station);
+    const latestPressureReading = stationAnalytics.getLatestReading(station);
+  
     
     const viewData = {
       title: "Station",
@@ -15,6 +22,10 @@ export const stationController = {
       minTempReading: minTempReading,
       maxTempReading: maxTempReading,
       latestCodeReading: latestCodeReading,
+      latestTempReading: latestTempReading,
+      convertLatestTempReading: convertLatestTempReading,
+      latestWindSpeedReading: latestWindSpeedReading,
+      latestPressureReading: latestPressureReading,
     };
     response.render("station-view", viewData);
   },
