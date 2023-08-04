@@ -6,6 +6,7 @@ allow stations to be added to this model
 list all stations in the model
 
 version 0.2.0
+Baseline Started
 introduce reading-store model
 allow readings to be added to this model
 list all readings in the model
@@ -21,4 +22,11 @@ created a method to show most recent reading in databaase to display in station-
 version 0.2.2
 Added reading-conversions.js to util folder
 created a readingConversions class with a temperature conversion method
+Added a decimal place adjuster method
+Added a BFT conversion method that diplays weather type to descriptive text
+Baseline completed
+
+version 0.3.0
+Release 1 Started
+
 

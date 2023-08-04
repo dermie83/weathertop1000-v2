@@ -13,6 +13,8 @@ export const stationController = {
     const latestTempReading = stationAnalytics.getLatestReading(station);
     const convertLatestTempReading = readingConversions.convertTemp(latestTempReading.temperature);
     const latestWindSpeedReading = stationAnalytics.getLatestReading(station);
+    const convertWindSpeedReadingToBFT = readingConversions.convertWindSpeedToBeaufortIndex(latestWindSpeedReading.windSpeed);
+    const convertBFTCodeToText = readingConversions.convertBFTCodeToText(convertWindSpeedReadingToBFT);
     const latestPressureReading = stationAnalytics.getLatestReading(station);
   
     
@@ -25,6 +27,8 @@ export const stationController = {
       latestTempReading: latestTempReading,
       convertLatestTempReading: convertLatestTempReading,
       latestWindSpeedReading: latestWindSpeedReading,
+      convertWindSpeedReadingToBFT: convertWindSpeedReadingToBFT,
+      convertBFTCodeToText: convertBFTCodeToText,
       latestPressureReading: latestPressureReading,
     };
     response.render("station-view", viewData);
