@@ -2,35 +2,23 @@ import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/station-analytics.js";
 import { readingConversions } from "../utils/reading-conversions.js";
+import { latestReadings } from "../utils/latest-readings.js";
 
 
 export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
-    const minTempReading = stationAnalytics.getMinTempReading(station);
-    const maxTempReading = stationAnalytics.getMaxTempReading(station);
-    const latestCodeReading = stationAnalytics.getLatestReading(station);
-    const latestTempReading = stationAnalytics.getLatestReading(station);
-    const convertLatestTempReading = readingConversions.convertTemp(latestTempReading.temperature);
-    const latestWindSpeedReading = stationAnalytics.getLatestReading(station);
-    const convertWindSpeedReadingToBFT = readingConversions.convertWindSpeedToBeaufortIndex(latestWindSpeedReading.windSpeed);
-    const convertBFTCodeToText = readingConversions.convertBFTCodeToText(convertWindSpeedReadingToBFT);
-    const latestPressureReading = stationAnalytics.getLatestReading(station);
-  
+    
+    let stationReadings = await latestReadings(request.params.id);
     
     const viewData = {
-      title: "Station",
+      title: "Station Readings",
       station: station,
-      minTempReading: minTempReading,
-      maxTempReading: maxTempReading,
-      latestCodeReading: latestCodeReading,
-      latestTempReading: latestTempReading,
-      convertLatestTempReading: convertLatestTempReading,
-      latestWindSpeedReading: latestWindSpeedReading,
-      convertWindSpeedReadingToBFT: convertWindSpeedReadingToBFT,
-      convertBFTCodeToText: convertBFTCodeToText,
-      latestPressureReading: latestPressureReading,
+    
     };
+    
+    Object.assign(viewData, stationReadings.reading);
+    
     response.render("station-view", viewData);
   },
   

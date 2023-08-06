@@ -6,7 +6,7 @@ allow stations to be added to this model
 list all stations in the model
 
 version 0.2.0
-Baseline Started
+pre Baseline Started
 introduce reading-store model
 allow readings to be added to this model
 list all readings in the model
@@ -14,17 +14,18 @@ create extra view partials to inhance UX i.e. logos and icons
 added delete methods and buttons for station and readings objects
 
 version 0.2.1
-started baseline of package/application development
+started baseline of project scope
 created a station-analytics.js file in util folder
-added max and min methods to display variables in station-view
-created a method to show most recent reading in databaase to display in station-view
+added max and min methods to stationAnalytics class
+created a latestReadings class in util/latest-readings.js file
+used LatestReadings class to display latest readings in dashboard-view and station-view
+developed view format with Bulma
 
 version 0.2.2
 Added reading-conversions.js to util folder
-created a readingConversions class with a temperature conversion method
-Added a decimal place adjuster method
-Added a BFT conversion method that diplays weather type to descriptive text
-Baseline completed
+created a readingConversions class with a temperature conversion method, a decimal place 
+adjuster method and a BFT conversion method that diplays weather type to descriptive text
+
 
 version 0.3.0
 Release 1 Started

@@ -1,37 +1,23 @@
 export const stationAnalytics = {
-  getMinTempReading(station) {
-    let minTempReading = null;
-    if (station.readings.length > 0) {
-      minTempReading = station.readings[0];
-      for (let i = 1; i < station.readings.length; i++) {
-        if (station.readings[i].temperature < minTempReading.temperature) {
-          minTempReading = station.readings[i];
-        }
-      }
-    }
-    return minTempReading;
+  getMinTempReading(stationReadings) {
+  let readingMin = Math.min(stationReadings);
+    return readingMin;
   },
   
-  getMaxTempReading(station) {
-    let maxTempReading = null;
-    if (station.readings.length > 0) {
-      maxTempReading = station.readings[0];
-      for (let i = 1; i < station.readings.length; i++) {
-        if (station.readings[i].temperature > maxTempReading.temperature) {
-          maxTempReading = station.readings[i];
-        }
-      }
-    }
-    return maxTempReading;
+  
+  getMaxTempReading(stationReadings) {
+    let readingMax = Math.max(stationReadings);
+    return readingMax;
   },
   
-  getLatestReading(station) {
-    let latestReading = null;
-    if (station.readings.length > 0) {
-      latestReading = station.readings[station.readings.length - 1];
-    }
-    return latestReading;
-  },
+  
+//   getLatestReading(station) {
+//     let latestReading = null;
+//     if (station.readings.length > 0) {
+//       return latestReading = station.readings[station.readings.length - 1];
+//     }
+//     return 0;
+//   },
   
   
 };

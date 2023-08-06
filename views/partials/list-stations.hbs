@@ -1,13 +1,122 @@
 {{#each stations}}
-<div class="box box-link-hover-shadow">
-  <h2 class="title">
-    {{name}}
-    <a href="/station/{{_id}}" class="button">
-      {{>icons/open}}
-    </a>
-    <a href="/dashboard/deletestation/{{_id}}" class="button">
-      {{>icons/delete}}
-    </a>
-  </h2>
-</div>
+
+  <div class="tile is-ancestor has-background-info-light">
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <span class="icon-text has-text-info">
+        <span class="icon is-large fas fa-2x">
+          <i class="fa-solid fa-location-dot"></i>
+        </span>
+        </span>
+        <p class="title">{{name}}</p><br>
+        
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <span class="icon-text has-text-dark">
+        <span class="icon is-large fas fa-2x">
+        <i class="fa-sharp fa-solid fa-calendar-days"></i>
+        </span>
+        </span>
+        <p class="title">Date</p><br>
+        <p class="subtitle"></p>
+      
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <span class="icon-text has-text-grey">
+        <span class="icon is-large fas fa-2x">
+        <i class=></i>
+        </span>
+        </span>
+        <p class="title">Weather</p><br>
+        <p class="subtitle"></p>
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <a>
+          <span class="icon-text has-text-info">
+          <span class="icon is-large fas fa-2x">
+          <i class="fa-solid fa-temperature-high"></i>
+          </span>
+          </span>
+        </a>
+        <a>
+          <span class="icon-text has-text-info">
+          <span class="icon is-large fas fa-2x">
+          <i class=></i>
+          </span>
+          </span>
+        </a>
+        <p class="title">Temp</p><br>
+        <p class="subtitle">{{latestTemp}} C<br>
+           F<br>
+          Max: C<br>
+          Min: C<br>
+        </p>
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <a>
+          <span class="icon-text has-text-dark">
+          <span class="icon is-large fas fa-2x">
+          <i class="fa-solid fa-wind"></i>
+          </span>
+          </span>
+        </a>
+        <a>
+          <span class="icon-text has-text-warning">
+          <span class="icon is-large fas fa-2x">
+          <i class=></i>
+          </span>
+          </span>
+        </a>
+        <p class="title">Wind</p><br>
+        <p class="subtitle"><br>
+          Direction: <br>
+          Feels like<br>
+           C<br>
+          Max: km/h<br>
+          Min: km/h<br>
+        </p>
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <a>
+          <span class="icon-text has-text-dark">
+          <span class="icon is-large fas fa-2x">
+          <i class="fa-solid fa-gauge-simple-high"></i>
+          </span>
+          </span>
+        </a>
+        <a>
+          <span class="icon-text has-text-dark">
+          <span class="icon is-large fas fa-2x">
+          <i class=></i>
+          </span>
+          </span>
+        </a>
+        <p class="title">Pressure</p><br>
+        <p class="subtitle"> hPa<br>
+           Max: hPa<br>
+           Min: hPa<br>
+        </p> 
+      </article>
+    </div>
+      <div>
+        <a href="/station/{{_id}}" class="button">
+         {{>icons/open}}
+        </a>
+        <a href="/dashboard/deletestation/{{_id}}" class="button">
+          {{>icons/delete}}
+        </a>
+      </div>
+  </div>
 {{/each}}
+
+

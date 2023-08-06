@@ -4,15 +4,7 @@
   <div class="title">
     {{station.name}}
     <div class="subtitle">
-      Min Temp: {{minTempReading.temperature}}
-      Max Temp: {{maxTempReading.temperature}}
-      latest Code: {{latestCodeReading.code}}
-      latest Temp C: {{latestTempReading.temperature}}
-      latest Temp F: {{convertLatestTempReading}}
-      latest WindSpeed: {{latestWindSpeedReading.windSpeed}}
-      windSpeed to BFT: {{convertWindSpeedReadingToBFT}}
-      BFT to Text: {{convertBFTCodeToText}}
-      latest Pressure: {{latestPressureReading.pressure}}
+      Latest Temp C: {{latestTemp}}
     </div>
   </div>
   {{> list-readings}}

@@ -2,12 +2,12 @@
   "file": "./models/stations.json",
   "stations": [
     {
-      "name": "Dermie",
-      "_id": "9a64e17e-59d8-4042-848d-4cd11a57c35d"
+      "name": "Test 1",
+      "_id": "f01a18d3-5f5d-42a9-834c-e0435ad8903d"
     },
     {
-      "name": "Susan",
-      "_id": "67528072-bf4f-4678-aa21-c063801ef9be"
+      "name": "Test 2",
+      "_id": "9af282a5-03b9-4156-92ed-353752b8a9f9"
     }
   ]
 }
