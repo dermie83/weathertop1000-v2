@@ -38,6 +38,9 @@ Release 1 completed
 
 version 0.1.6
 Release 2 started
+added user-store.js to model
+added accounts.js to controllers
+added signup, login submit forms and views along with new index page
 
 
 
