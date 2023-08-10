@@ -36,7 +36,7 @@ export const latestReadings = async (id) => {
     latestReading = stationReadings.length - 1;
     reading.latestCode = stationReadings[latestReading].code;
     reading.latestCodeText = readingConversions.convertWeatherCodeToText(reading.latestCode);
-    // reading.latestCodeIcon = readingConversions.codeIcon(reading.latestCode);
+    reading.latestCodeIcon = readingConversions.convertWeatherToIcon(reading.latestCode);
     reading.latestTemp = stationReadings[latestReading].temperature;
     reading.latestTempFahrenheit = readingConversions.convertTemp(reading.latestTemp);
     reading.minTemp = stationAnalytics.getMinReading(stationReadings.map((stationReadings) => stationReadings.temperature));
@@ -56,7 +56,7 @@ export const latestReadings = async (id) => {
     reading.minPressure = stationAnalytics.getMinReading(stationReadings.map((stationReadings) => stationReadings.pressure));
     reading.maxPressure = stationAnalytics.getMaxReading(stationReadings.map((stationReadings) => stationReadings.pressure));
       
-//     reading.trendTemperature = stationAnalytics.readingTrends( );
+    reading.trendTemperature = stationAnalytics.checkReadingTrend(stationReadings.map((stationReadings) => stationReadings.temperature));
       
 //     reading.trendWindSpeed = stationAnalytics.readingTrends( );
       

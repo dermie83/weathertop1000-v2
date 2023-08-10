@@ -34,6 +34,31 @@ export const readingConversions = {
 
     },
   
+  convertWeatherToIcon(latestWeatherCode) {
+
+        switch (latestWeatherCode) {
+            case 100:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-800.svg?v=1690975955616";
+            case 200:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-801.svg?v=1690975953124";
+            case 300:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-804.svg?v=1690975954603";
+            case 400:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-520.svg?v=1690975917468";
+            case 500:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-522.svg?v=1690975918393";
+            case 600:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-501.svg?v=1690975922765";
+            case 700:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-600.svg?v=1690975938579";
+            case 800:
+                return "https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/weather-211.svg?v=1690975903178";
+            default:
+                return "No Icon";
+        }
+
+    },
+  
   convertWindSpeedToBeaufortIndex(windSpeed) {
 
         if (windSpeed == 1)
@@ -200,6 +225,22 @@ export const readingConversions = {
         }
 
     },
+  
+  convertTrendToIcon(latestTrend)
+    {
+        if (latestTrend == "Increasing"){
+            return "Increasing";
+        } else if (latestTrend == "Decreasing") {
+            return "Decreasing";
+        } else if (latestTrend == "Steady") {
+            return "Steady";
+        }
+        else if (latestTrend == "No Trend Yet") {
+            return "No Trend Yet";
+        }
+
+        return "No Trend Yet";
+    }
   
 }
 

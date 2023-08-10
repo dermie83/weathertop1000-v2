@@ -31,7 +31,7 @@
       <article class="tile is-child box">
         <span class="icon-text has-text-grey">
         <span class="icon is-large fas fa-2x">
-        <i class=> weather icon </i>
+        <img src="{{latestCodeIcon}}">
         </span>
         </span>
         <p class="title">Weather</p><br>
@@ -50,7 +50,7 @@
         <a>
           <span class="icon-text has-text-info">
           <span class="icon is-large fas fa-2x">
-          <i class=> TempTrend </i>
+            <img src="https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/thermometer.svg">
           </span>
           </span>
         </a>
@@ -67,14 +67,15 @@
         <a>
           <span class="icon-text has-text-dark">
           <span class="icon is-large fas fa-2x">
-          <i class="fa-solid fa-wind"></i>
+          <img src="https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/wind-beaufort-{{latestWindSpeedBFT}}.svg">
           </span>
           </span>
         </a>
         <a>
           <span class="icon-text has-text-warning">
           <span class="icon is-large fas fa-2x">
-          <i class=> WindTrend </i>
+           
+            {{trendTemperature}}
           </span>
           </span>
         </a>
@@ -99,7 +100,7 @@
         <a>
           <span class="icon-text has-text-dark">
           <span class="icon is-large fas fa-2x">
-          <i class=> PressureTrend</i>
+          <img src="https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/barometer.svg">
           </span>
           </span>
         </a>
