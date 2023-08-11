@@ -10,10 +10,12 @@ export const latestReadings = async (id) => {
     latestCode: null,
     latestCodeText: null,
     latestCodeIcon: null,
+    latestTimeStamp: null,
     latestTemp: null,
     latestTempFahrenheit: null,
     minTemp: null,
     maxTemp: null,
+    trendTemperatureToIcon: null, 
     latestWindSpeed: null,
     latestWindSpeedBFT: null,
     BFTCodeToText: null,
@@ -30,17 +32,23 @@ export const latestReadings = async (id) => {
     trendTemperature: null,
     trendWindSpeed: null,
     trendPressure: null,
-    readingsRecorded: 0,
   };
+  
   if (stationReadings.length > 0) {
     latestReading = stationReadings.length - 1;
     reading.latestCode = stationReadings[latestReading].code;
     reading.latestCodeText = readingConversions.convertWeatherCodeToText(reading.latestCode);
     reading.latestCodeIcon = readingConversions.convertWeatherToIcon(reading.latestCode);
+    
+    reading.latestTimeStamp = stationReadings[latestReading].timeStamp;
+    
     reading.latestTemp = stationReadings[latestReading].temperature;
     reading.latestTempFahrenheit = readingConversions.convertTemp(reading.latestTemp);
     reading.minTemp = stationAnalytics.getMinReading(stationReadings.map((stationReadings) => stationReadings.temperature));
     reading.maxTemp = stationAnalytics.getMaxReading(stationReadings.map((stationReadings) => stationReadings.temperature));
+    reading.trendTemperature = stationAnalytics.checkReadingTrend(stationReadings.map((stationReadings) => stationReadings.temperature));
+    reading.trendTemperatureToIcon = readingConversions.convertTrendToIcon(reading.trendTemperature);
+    
     reading.latestWindSpeed = stationReadings[latestReading].windSpeed;
     reading.latestWindSpeedBFT = readingConversions.convertWindSpeedToBeaufortIndex(reading.latestWindSpeed);
     reading.BFTCodeToText = readingConversions.convertBFTCodeToText(reading.latestWindSpeedBFT)
@@ -48,20 +56,16 @@ export const latestReadings = async (id) => {
     reading.maxWindSpeed = stationAnalytics.getMaxReading(stationReadings.map((stationReadings) => stationReadings.windSpeed));
     reading.windDirection = stationReadings[latestReading].windDirection;
     reading.windDirectionText = readingConversions.convertWindDirectionToText(reading.windDirection);
-     
-    // reading.windDirectionIcon = readingConversions.convertDegreeToDirection( );
-     
     reading.WindChill = readingConversions.calculateWindChill(reading.latestTemp, reading.latestWindSpeed);
+    reading.trendWindSpeed = stationAnalytics.checkReadingTrend(stationReadings.map((stationReadings) => stationReadings.windSpeed));
+    reading.trendWindSpeedToIcon = readingConversions.convertTrendToIcon(reading.trendWindSpeed);
+    
     reading.latestPressure = stationReadings[latestReading].pressure;
     reading.minPressure = stationAnalytics.getMinReading(stationReadings.map((stationReadings) => stationReadings.pressure));
     reading.maxPressure = stationAnalytics.getMaxReading(stationReadings.map((stationReadings) => stationReadings.pressure));
+    reading.trendPressure = stationAnalytics.checkReadingTrend(stationReadings.map((stationReadings) => stationReadings.pressure));
+    reading.trendPressureToIcon = readingConversions.convertTrendToIcon(reading.trendPressure);
       
-    reading.trendTemperature = stationAnalytics.checkReadingTrend(stationReadings.map((stationReadings) => stationReadings.temperature));
-      
-//     reading.trendWindSpeed = stationAnalytics.readingTrends( );
-      
-//     reading.trendPressure = stationAnalytics.readingTrends( );
-    
   }
   return {
     latestReading: latestReading,

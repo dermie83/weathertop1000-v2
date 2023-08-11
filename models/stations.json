@@ -11,9 +11,15 @@
     },
     {
       "name": "Test 3",
-      "latitude": "3.55555",
-      "longitude": "23.3433434",
-      "_id": "964e7d99-8634-4919-a340-e5ae8a923c03"
+      "latitude": "1111111",
+      "longitude": "11111111",
+      "_id": "e6716779-7e0f-42e1-babe-efaefcb38db5"
+    },
+    {
+      "name": "Teat 5",
+      "latitude": "1212",
+      "longitude": "23223",
+      "_id": "3d4ac3a7-06c7-43d8-a651-e0bd254cb403"
     }
   ]
 }

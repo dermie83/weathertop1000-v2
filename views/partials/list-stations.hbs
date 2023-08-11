@@ -23,8 +23,7 @@
         </span>
         </span>
         <p class="title">Date</p><br>
-        <p class="subtitle"></p>
-      
+        <p class="subtitle">{{latestTimeStamp}}</p>
       </article>
     </div>
     <div class="tile is-parent">
@@ -50,7 +49,7 @@
         <a>
           <span class="icon-text has-text-info">
           <span class="icon is-large fas fa-2x">
-            <img src="https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/thermometer.svg">
+             <i class="{{trendTemperatureToIcon}}"></i>
           </span>
           </span>
         </a>
@@ -74,8 +73,7 @@
         <a>
           <span class="icon-text has-text-warning">
           <span class="icon is-large fas fa-2x">
-           
-            {{trendTemperature}}
+           <i class="{{trendWindSpeedToIcon}}"></i>
           </span>
           </span>
         </a>
@@ -100,7 +98,7 @@
         <a>
           <span class="icon-text has-text-dark">
           <span class="icon is-large fas fa-2x">
-          <img src="https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/barometer.svg">
+          <i class="{{trendPressureToIcon}}"></i>
           </span>
           </span>
         </a>
@@ -121,5 +119,4 @@
       </div>
   </div>
 {{/each}}
-
 

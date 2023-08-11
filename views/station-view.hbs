@@ -4,7 +4,7 @@
   <header class="title is-capitalized">
   Most Recent Station Reading
   </header>
-  <div class="tile is-ancestor has-background-info-light">
+   <div class="tile is-ancestor has-background-info-light">
     <div class="tile is-parent">
       <article class="tile is-child box">
         <span class="icon-text has-text-info">
@@ -13,7 +13,10 @@
         </span>
         </span>
         <p class="title">{{station.name}}</p><br>
-        
+        <p class="subtitle">
+        Latitude: {{longitude}}<br>
+        Longitude: {{latitude}}<br>
+        </p>
       </article>
     </div>
     <div class="tile is-parent">
@@ -24,15 +27,14 @@
         </span>
         </span>
         <p class="title">Date</p><br>
-        <p class="subtitle"></p>
-      
+        <p class="subtitle">--Latest time stamp here--</p>
       </article>
     </div>
     <div class="tile is-parent">
       <article class="tile is-child box">
         <span class="icon-text has-text-grey">
         <span class="icon is-large fas fa-2x">
-        <i class=> weather icon </i>
+        <img src="{{latestCodeIcon}}">
         </span>
         </span>
         <p class="title">Weather</p><br>
@@ -51,7 +53,7 @@
         <a>
           <span class="icon-text has-text-info">
           <span class="icon is-large fas fa-2x">
-          <i class=> TempTrend </i>
+             <i class="{{trendTemperatureToIcon}}"></i>
           </span>
           </span>
         </a>
@@ -68,14 +70,14 @@
         <a>
           <span class="icon-text has-text-dark">
           <span class="icon is-large fas fa-2x">
-          <i class="fa-solid fa-wind"></i>
+          <img src="https://cdn.glitch.global/0fa94a6d-c73c-4106-b4c8-60a78df7dea0/wind-beaufort-{{latestWindSpeedBFT}}.svg">
           </span>
           </span>
         </a>
         <a>
           <span class="icon-text has-text-warning">
           <span class="icon is-large fas fa-2x">
-          <i class=> WindTrend </i>
+           <i class="{{trendWindSpeedToIcon}}"></i>
           </span>
           </span>
         </a>
@@ -100,7 +102,7 @@
         <a>
           <span class="icon-text has-text-dark">
           <span class="icon is-large fas fa-2x">
-          <i class=> PressureTrend</i>
+          <i class="{{trendPressureToIcon}}"></i>
           </span>
           </span>
         </a>
@@ -111,7 +113,6 @@
         </p> 
       </article>
     </div>
-      
   </div>
 
   {{> list-readings}}

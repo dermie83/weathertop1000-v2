@@ -229,11 +229,11 @@ export const readingConversions = {
   convertTrendToIcon(latestTrend)
     {
         if (latestTrend == "Increasing"){
-            return "Increasing";
+            return "fa-solid fa-arrow-up";
         } else if (latestTrend == "Decreasing") {
-            return "Decreasing";
+            return "fa-solid fa-arrow-down";
         } else if (latestTrend == "Steady") {
-            return "Steady";
+            return "fa-solid fa fa-arrows-h";
         }
         else if (latestTrend == "No Trend Yet") {
             return "No Trend Yet";

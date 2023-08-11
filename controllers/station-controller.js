@@ -24,8 +24,20 @@ export const stationController = {
   
   async addReading(request, response) {
     const station = await stationStore.getStationById(request.params.id);
+    const date = new Date(); // Add Current Date
+    let dateTime = date.toLocaleString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+                                       
     const newReading = {
       code: Number(request.body.code),
+      timeStamp: String(dateTime),
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
       windDirection: Number(request.body.windDirection),
