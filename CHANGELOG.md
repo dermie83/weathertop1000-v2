@@ -42,5 +42,8 @@ added user-store.js to model
 added accounts.js to controllers
 added signup, login submit forms and views along with new index page
 
+version 0.1.7
+Added edit button to station-view
+
 
 

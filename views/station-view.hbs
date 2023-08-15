@@ -14,8 +14,8 @@
         </span>
         <p class="title">{{station.name}}</p><br>
         <p class="subtitle">
-        Latitude: {{longitude}}<br>
-        Longitude: {{latitude}}<br>
+        Lat: {{latitude}}<br>
+        Lgn: {{longitude}}<br>
         </p>
       </article>
     </div>
@@ -27,7 +27,7 @@
         </span>
         </span>
         <p class="title">Date</p><br>
-        <p class="subtitle">--Latest time stamp here--</p>
+        <p class="subtitle">{{latestTimeStamp}}</p>
       </article>
     </div>
     <div class="tile is-parent">
@@ -114,7 +114,7 @@
       </article>
     </div>
   </div>
-
+  
   {{> list-readings}}
   {{> add-reading}}
 </section>
