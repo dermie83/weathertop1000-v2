@@ -7,6 +7,17 @@
       "email": "dermiemadsen@gmail.com",
       "password": "secret",
       "_id": "3fe11df7-0a3f-412a-b831-fb2f9caba517"
+    },
+    {
+      "email": "susan@gmail.com",
+      "_id": "7062e5ec-2201-411f-8acd-5a5645f71762"
+    },
+    {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "13d52ed5-ce5f-4c90-b5d5-23bd4414caaf"
     }
   ]
 }

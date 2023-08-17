@@ -117,13 +117,33 @@
     },
     {
       "code": 600,
-      "timeStamp": "15/08/2023, 20:43:27",
-      "temperature": 23,
-      "windSpeed": 45,
+      "timeStamp": "17/08/2023, 14:40:34",
+      "temperature": 23.2,
+      "windSpeed": 7,
+      "windDirection": 23,
+      "pressure": 1001,
+      "_id": "108fa187-ce17-4423-af8c-541d944911e1",
+      "stationid": "30183296-9fe9-4d54-8639-53ba73cd8d9e"
+    },
+    {
+      "code": 300,
+      "timeStamp": "17/08/2023, 15:54:02",
+      "temperature": 3,
+      "windSpeed": 12,
       "windDirection": 12,
+      "pressure": 1001,
+      "_id": "5e81312e-3158-422d-b711-ced4a0b9a06d",
+      "stationid": "b904522f-2c9e-4197-b012-e7b0e5007f32"
+    },
+    {
+      "code": 500,
+      "timeStamp": "17/08/2023, 17:18:08",
+      "temperature": 1,
+      "windSpeed": 2,
+      "windDirection": 3,
       "pressure": 4,
-      "_id": "2a4f0128-db16-4748-bfd8-931235191769",
-      "stationid": "3d4ac3a7-06c7-43d8-a651-e0bd254cb403"
+      "_id": "c3c11280-3bf3-435e-b7d4-a18811eb29a6",
+      "stationid": "4d6f5827-feb9-433c-a36d-277264580767"
     }
   ]
 }

@@ -1,12 +1,15 @@
 import { userStore } from "../models/user-store.js";
+import { stationStore } from "../models/station-store.js";
 
 export const accountsController = {
-  index(request, response) {
+  async index(request, response) {
     const viewData = {
       title: "Login or Signup",
+      
     };
     response.render("index", viewData);
   },
+  
 
   login(request, response) {
     const viewData = {
@@ -16,7 +19,7 @@ export const accountsController = {
   },
 
   logout(request, response) {
-    response.cookie("playlist", "");
+    response.cookie("station", "");
     response.redirect("/");
   },
 
@@ -37,7 +40,7 @@ export const accountsController = {
   async authenticate(request, response) {
     const user = await userStore.getUserByEmail(request.body.email);
     if (user) {
-      response.cookie("playlist", user.email);
+      response.cookie("station", user.email);
       console.log(`logging in ${user.email}`);
       response.redirect("/dashboard");
     } else {
@@ -49,4 +52,31 @@ export const accountsController = {
     const userEmail = request.cookies.playlist;
     return await userStore.getUserByEmail(userEmail);
   },
+  
+//   async updateUser(request, response) {
+    
+//     let loggedInUser = await accountsController.getLoggedInUser(request);
+//     let updateUser = {
+//       firstName: request.body.firstName,
+//       lastName: request.body.lastName,
+//       password: request.body.password,
+//       email: request.body.email,
+//     };
+
+//     await userStore.updateUser(loggedInUser._id, updateUser);
+//     response.redirect("/profile");
+//   },
+  
+//   async profile(request, response) {
+//      const loggedInUser = await accountsController.getLoggedInUser(request);
+
+//     const viewData = {
+//       title: "User Profile",
+//       user: loggedInUser,
+//       //UserLoggedIn: loggedInUser,
+//     };
+//     console.log("Rendering: Profile-View");
+    
+//     response.render("updateprofile-view", viewData);
+//   },
 };

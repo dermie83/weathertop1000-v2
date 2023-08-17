@@ -4,15 +4,18 @@ import { stationAnalytics } from "../utils/station-analytics.js";
 import { readingConversions } from "../utils/reading-conversions.js";
 import { stationController } from "../controllers/station-controller.js";
 import { latestReadings } from "../utils/latest-readings.js";
+import { accountsController } from "../controllers/accounts-controller.js";
 
 export const dashboardController = {
   
   async index(request, response) {
-    const stations = await stationStore.getAllStations();
+    let loggedInUser = await accountsController.getLoggedInUser(request);
+    
     
      const viewData = {
       title: "Station Dashboard",
-      stations: stations,
+      //stations: stations,
+      stations: await stationStore.getStationsByUserId(loggedInUser._id),
     };
     
     for (const station of viewData.stations) {
@@ -25,10 +28,12 @@ export const dashboardController = {
   },
   
   async addStation(request, response) {
-    const newStation = {
+    let loggedInUser = await accountsController.getLoggedInUser(request);
+    let newStation = {
       name: request.body.name,
       latitude: request.body.latitude,
       longitude: request.body.longitude,
+      userid: loggedInUser._id,
     };
     console.log(`adding station ${newStation.name}`);
     await stationStore.addStation(newStation);

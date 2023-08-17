@@ -21,8 +21,15 @@ export const stationStore = {
   async getStationById(id) {
     await db.read();
     const list = db.data.stations.find((station) => station._id === id);
-    list.readings = await readingStore.getReadingsByStationId(list._id);
+    if (list) {
+      list.readings = await readingStore.getReadingsByStationId(list._id);
+    }
     return list;
+  },
+  
+  async getStationsByUserId(userid) {
+    await db.read();
+    return db.data.stations.filter((station) => station.userid === userid);
   },
 
   async deleteStationById(id) {

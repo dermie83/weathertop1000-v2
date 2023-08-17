@@ -1,8 +1,8 @@
 {{> menu}}
 
 <section class="section">
-  <header class="title is-capitalized">
-  Most Recent Station Reading
+  <header class="title">
+    Latest weather readings - {{station.name}} 
   </header>
    <div class="tile is-ancestor has-background-info-light">
     <div class="tile is-parent">
@@ -12,10 +12,10 @@
           <i class="fa-solid fa-location-dot"></i>
         </span>
         </span>
-        <p class="title">{{station.name}}</p><br>
+        
         <p class="subtitle">
-        Lat: {{latitude}}<br>
-        Lgn: {{longitude}}<br>
+        Lat: {{station.latitude}}<br>
+        Lon: {{station.longitude}}<br>
         </p>
       </article>
     </div>

@@ -2,7 +2,7 @@ import express from "express";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { stationController } from "./controllers/station-controller.js";
-import { accountsController } from "./controllers/accounts.js";
+import { accountsController } from "./controllers/accounts-controller.js";
 import { readingController } from "./controllers/reading-controller.js";
 
 export const router = express.Router();
@@ -13,6 +13,8 @@ router.get("/signup", accountsController.signup);
 router.get("/logout", accountsController.logout);
 router.post("/register", accountsController.register);
 router.post("/authenticate", accountsController.authenticate);
+//router.get("/profile", accountsController.profile);
+//router.post("/profile/update/:_id", accountsController.updateUser);
 
 
 router.get("/dashboard", dashboardController.index);
