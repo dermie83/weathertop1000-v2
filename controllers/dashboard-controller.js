@@ -1,50 +1,38 @@
 import { stationStore } from "../models/station-store.js";
-import { readingStore } from "../models/reading-store.js";
-import { stationAnalytics } from "../utils/station-analytics.js";
-import { readingConversions } from "../utils/reading-conversions.js";
-import { stationController } from "../controllers/station-controller.js";
-import { latestReadings } from "../utils/latest-readings.js";
-import { accountsController } from "../controllers/accounts-controller.js";
+import { accountsController } from "./accounts-controller.js";
 
 export const dashboardController = {
-  
   async index(request, response) {
-    let loggedInUser = await accountsController.getLoggedInUser(request);
-    
-    
-     const viewData = {
+    const loggedInUser = accountsController.getLoggedInUser(request);
+    let sortStations = await stationStore.getStationsByUserId(loggedInUser._id);
+    sortStations.sort((a, b) => (a.name > b.name ? 1 : -1));
+    const viewData = {
       title: "Station Dashboard",
-      //stations: stations,
-      stations: await stationStore.getStationsByUserId(loggedInUser._id),
+      stations: sortStations,
     };
-    
-    for (const station of viewData.stations) {
-      const readingObject = await latestReadings(station._id);
-      Object.assign(station, readingObject.reading);
-    }
-      
     console.log("dashboard rendering");
     response.render("dashboard-view", viewData);
   },
-  
+
   async addStation(request, response) {
-    let loggedInUser = await accountsController.getLoggedInUser(request);
-    let newStation = {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    const newStation = {
       name: request.body.name,
       latitude: request.body.latitude,
       longitude: request.body.longitude,
       userid: loggedInUser._id,
+      
     };
     console.log(`adding station ${newStation.name}`);
-    await stationStore.addStation(newStation);
+    const station = await stationStore.addStation(newStation);
+    console.log("test1");
     response.redirect("/dashboard");
   },
-  
+
   async deleteStation(request, response) {
     const stationId = request.params.id;
     console.log(`Deleting Station ${stationId}`);
     await stationStore.deleteStationById(stationId);
     response.redirect("/dashboard");
   },
-  
 };

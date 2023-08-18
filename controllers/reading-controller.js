@@ -27,8 +27,7 @@ export const readingController = {
     };
     
     console.log(`Updating Reading ${readingId} from Station ${stationId}`);
-    const reading = await readingStore.getReadingById(readingId);
-    await readingStore.updateReading(reading, updateReading);
+    await readingStore.updateReading(readingId, updateReading);
     response.redirect("/station/" + stationId);
   },
 };

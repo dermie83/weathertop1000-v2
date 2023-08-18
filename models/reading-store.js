@@ -39,10 +39,25 @@ export const readingStore = {
     db.data.readings = [];
     await db.write();
   },
+  
+//    async updateReading(readingId, updatedReading) {    
+//     await db.read();
+    
+//     const index = db.data.readings.findIndex((reading) => reading._id === readingId);
+ 
+//     db.data.readings[index].code = updatedReading.code;
+//     //db.data.readings[index].timeStamp = updatedReading.timeStamp;
+//     db.data.readings[index].temperature = updatedReading.temperature;
+//     db.data.readings[index].windSpeed = updatedReading.windSpeed;
+//     db.data.readings[index].windDirection = updatedReading.windDirection;
+//     db.data.readings[index].pressure = updatedReading.pressure;
+//     await db.write();
+//     return updatedReading;
+//   },
 
   async updateReading(readingId, updatedReading) {
     
-    const reading = this.getReadingById(readingId);
+    const reading = await this.getReadingById(readingId);
     reading.code = updatedReading.code;
     reading.temperature = updatedReading.temperature;
     reading.windSpeed = updatedReading.windSpeed;
@@ -50,8 +65,6 @@ export const readingStore = {
     reading.pressure = updatedReading.pressure;
     await db.write();
   },
-  
 
-  
   
 };
